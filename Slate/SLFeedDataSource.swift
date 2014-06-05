@@ -2,34 +2,24 @@
 
 import UIKit
 
-struct Repo {
-  let id: UInt
-  let name: String
-  let owner: Owner
-  let fork: Bool
-  let language: String
-
-  struct Owner {
-    let login: String
-    let id: UInt
-    let avatar_url: NSURL
-    let url: NSURL
-  }
+struct Repos {
+  var repos: Repo[]
 }
 
 @objc protocol SLFeedDataSourceDelegate {
   func didReceiveData() -> Void
+  func didSelectRepo(index: Int, fork: Bool) -> Void
 }
 
 class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-  var data: Repo[]
-  var loaded: Bool
+  var data: Repos
   weak var delegate: SLFeedDataSourceDelegate?
+  var cache: Dictionary<String, Repos>
 
   init() {
-    data = []
-    loaded = false
+    data = Repos(repos: [])
+    cache = [:]
     super.init()
   }
 
@@ -39,7 +29,7 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
       cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
     }
 
-    var repo = data.filter({(r: Repo) -> Bool in return r.fork == (1 == indexPath.section)})[indexPath.row]
+    var repo = data.repos.filter({(r: Repo) -> Bool in return r.fork == (1 == indexPath.section)})[indexPath.row]
     cell.textLabel.text = "Name: \(repo.name)"
     cell.detailTextLabel.text = "Language: \(repo.language)"
     return cell
@@ -47,15 +37,15 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
   func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
-      return data.filter({(r: Repo) -> Bool in return !r.fork}).count
+      return data.repos.filter({(r: Repo) -> Bool in return !r.fork}).count
     } else {
-      return data.filter({(r: Repo) -> Bool in return r.fork}).count
+      return data.repos.filter({(r: Repo) -> Bool in return r.fork}).count
     }
   }
 
   func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
     if section == 0 {
-      return "Rokob's Repos"
+      return "User's Repos"
     } else {
       return "Forks"
     }
@@ -66,34 +56,49 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    delegate?.didSelectRepo(indexPath.row, fork: indexPath.section == 1)
   }
 
-  func loadData() {
-    if loaded {
+  func repoAtIndex(index: Int, fork: Bool) -> Repo {
+    return data.repos.filter({(r: Repo) -> Bool in return r.fork == fork})[index]
+  }
+
+  func loadData(username: String) {
+    if let result = cache[username] {
+      handleData(username, repos: result)
       return
     }
 
     var manager = AFHTTPRequestOperationManager()
     manager.responseSerializer = AFJSONResponseSerializer(readingOptions: NSJSONReadingOptions.MutableContainers)
-    manager.GET("https://api.github.com/users/rokob/repos",
+    manager.GET("https://api.github.com/users/\(username)/repos",
       parameters: nil,
       success: {(_: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-        self.loaded = true
-        self.parseResponse(response as Dictionary<String, AnyObject!>[])
+        if response is Dictionary<String, AnyObject!>[] {
+          var parsedData = self.parseResponse(response as Dictionary<String, AnyObject!>[])
+          var repos = Repos(repos: parsedData)
+          self.cache[username] = repos
+          self.handleData(username, repos: repos)
+        } else {
+          self.cache[username] = Repos(repos: [])
+          self.handleUnknown(username)
+        }
       },
       failure: {(_: AFHTTPRequestOperation!, error: NSError!) -> Void in
         println(error)
       })
   }
 
-  func parseResponse(response: Dictionary<String, AnyObject!>[]) {
+  func parseResponse(response: Dictionary<String, AnyObject!>[]) -> Repo[] {
+    var backgroundData = [] as Repo[]
     for dict in response {
       var ownerDict = dict["owner"]! as Dictionary<String, AnyObject!>
       var owner = Repo.Owner(
         login: ownerDict["login"]! as String,
         id: ownerDict["id"]! as UInt,
-        avatar_url: NSURL(string: ownerDict["avatar_url"]! as String),
-        url: NSURL(string: ownerDict["url"]! as String)
+        avatar_url: ownerDict["avatar_url"]! as String,
+        url: ownerDict["url"]! as String
       )
       var repo = Repo(
         id: dict["id"]! as UInt,
@@ -102,8 +107,19 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
         fork: dict["fork"]! as Bool,
         language: dict["language"]! as String
       )
-      data.append(repo)
+      backgroundData.append(repo)
     }
-    delegate?.didReceiveData()
+    return backgroundData
+  }
+
+  func handleData(username: String, repos: Repos) {
+    dispatch_async(dispatch_get_main_queue()) {
+      self.data = repos
+      self.delegate?.didReceiveData()
+    }
+  }
+
+  func handleUnknown(username: String) {
+
   }
 }
