@@ -63,7 +63,8 @@ class SLRepoView: UIView {
     x = CGRectGetMaxX(frame) + metrics.padding.x
     var maxSize = CGSizeMake(bounds.width - x, bounds.height)
     var labelSize = views!.ownerLoginLabel.sizeThatFits(maxSize)
-    frame = CGRectMake(x, y - labelSize.height, labelSize.width, labelSize.height)
+    var descent = views!.ownerLoginLabel.font.descender
+    frame = CGRectMake(x, y - labelSize.height - descent, labelSize.width, labelSize.height)
     views!.ownerLoginLabel.frame = frame
 
     y = CGRectGetMaxY(frame) + metrics.padding.y

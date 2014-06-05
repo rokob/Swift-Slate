@@ -15,6 +15,7 @@
 		87320987193EB279004A8FCE /* SLRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87320986193EB279004A8FCE /* SLRootViewController.swift */; };
 		87320989193EB32B004A8FCE /* SLFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87320988193EB32B004A8FCE /* SLFeedViewController.swift */; };
 		8732098B193ED239004A8FCE /* SLFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732098A193ED239004A8FCE /* SLFeedDataSource.swift */; };
+		879CBF001940D292009EA77B /* SLChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBEFF1940D292009EA77B /* SLChannel.swift */; };
 		87B7140219402C8C00E62C1B /* SLRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140119402C8C00E62C1B /* SLRepoView.swift */; };
 		87B7140419402DA000E62C1B /* SLRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140319402DA000E62C1B /* SLRepo.swift */; };
 		87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B71405194046ED00E62C1B /* SLRepoViewController.swift */; };
@@ -44,6 +45,7 @@
 		87320988193EB32B004A8FCE /* SLFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLFeedViewController.swift; sourceTree = "<group>"; };
 		8732098A193ED239004A8FCE /* SLFeedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLFeedDataSource.swift; sourceTree = "<group>"; };
 		8732098C193EFDBD004A8FCE /* Slate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slate-Bridging-Header.h"; sourceTree = "<group>"; };
+		879CBEFF1940D292009EA77B /* SLChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLChannel.swift; sourceTree = "<group>"; };
 		87B7140119402C8C00E62C1B /* SLRepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoView.swift; sourceTree = "<group>"; };
 		87B7140319402DA000E62C1B /* SLRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepo.swift; sourceTree = "<group>"; };
 		87B71405194046ED00E62C1B /* SLRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				87B7140319402DA000E62C1B /* SLRepo.swift */,
 				87B7140119402C8C00E62C1B /* SLRepoView.swift */,
 				87B71405194046ED00E62C1B /* SLRepoViewController.swift */,
+				879CBEFF1940D292009EA77B /* SLChannel.swift */,
 				87320970193EB1D7004A8FCE /* Images.xcassets */,
 				8732096C193EB1D7004A8FCE /* Supporting Files */,
 				8732098C193EFDBD004A8FCE /* Slate-Bridging-Header.h */,
@@ -309,6 +312,7 @@
 			files = (
 				8732096F193EB1D7004A8FCE /* AppDelegate.swift in Sources */,
 				87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */,
+				879CBF001940D292009EA77B /* SLChannel.swift in Sources */,
 				87320989193EB32B004A8FCE /* SLFeedViewController.swift in Sources */,
 				87B7140419402DA000E62C1B /* SLRepo.swift in Sources */,
 				87320987193EB279004A8FCE /* SLRootViewController.swift in Sources */,

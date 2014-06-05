@@ -71,7 +71,7 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
 
     var manager = AFHTTPRequestOperationManager()
-    manager.responseSerializer = AFJSONResponseSerializer(readingOptions: NSJSONReadingOptions.MutableContainers)
+    manager.responseSerializer = AFJSONResponseSerializer()
     manager.GET("https://api.github.com/users/\(username)/repos",
       parameters: nil,
       success: {(_: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
