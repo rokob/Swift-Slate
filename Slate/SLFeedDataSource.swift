@@ -8,6 +8,10 @@ struct Repos {
 
 @objc protocol SLFeedDataSourceDelegate {
   func didReceiveData() -> Void
+  // This is a hack because the compiler barfs on this method taking
+  // a Repo as an argument because of the @objc attribute, but without
+  // @objc the compiler barfs on making the delegate weak so catch-22
+  // leads to this hack
   func didSelectRepo(index: Int, fork: Bool) -> Void
 }
 
@@ -91,25 +95,9 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
   }
 
   func parseResponse(response: Dictionary<String, AnyObject!>[]) -> Repo[] {
-    var backgroundData = [] as Repo[]
-    for dict in response {
-      var ownerDict = dict["owner"]! as Dictionary<String, AnyObject!>
-      var owner = Repo.Owner(
-        login: ownerDict["login"]! as String,
-        id: ownerDict["id"]! as UInt,
-        avatar_url: ownerDict["avatar_url"]! as String,
-        url: ownerDict["url"]! as String
-      )
-      var repo = Repo(
-        id: dict["id"]! as UInt,
-        name: dict["name"]! as String,
-        owner: owner,
-        fork: dict["fork"]! as Bool,
-        language: dict["language"]! as String
-      )
-      backgroundData.append(repo)
+    return response.map() {(dict: Dictionary<String, AnyObject!>) -> Repo in
+      return Repo.fromJSON(dict)
     }
-    return backgroundData
   }
 
   func handleData(username: String, repos: Repos) {
