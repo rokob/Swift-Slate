@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window!.backgroundColor = UIColor.whiteColor()
     self.window!.makeKeyAndVisible()
 
-    goingSwiftly()
     return true
   }
 
