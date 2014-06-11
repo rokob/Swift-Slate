@@ -19,6 +19,8 @@
 		87B7140219402C8C00E62C1B /* SLRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140119402C8C00E62C1B /* SLRepoView.swift */; };
 		87B7140419402DA000E62C1B /* SLRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140319402DA000E62C1B /* SLRepo.swift */; };
 		87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B71405194046ED00E62C1B /* SLRepoViewController.swift */; };
+		87EE36F51948C60C002E0959 /* SLRepoConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */; };
+		87EE36F71948C9E2002E0959 /* rokob.json in Resources */ = {isa = PBXBuildFile; fileRef = 87EE36F61948C9E2002E0959 /* rokob.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		87B7140119402C8C00E62C1B /* SLRepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoView.swift; sourceTree = "<group>"; };
 		87B7140319402DA000E62C1B /* SLRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepo.swift; sourceTree = "<group>"; };
 		87B71405194046ED00E62C1B /* SLRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoViewController.swift; sourceTree = "<group>"; };
+		87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoConstraintView.swift; sourceTree = "<group>"; };
+		87EE36F61948C9E2002E0959 /* rokob.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rokob.json; sourceTree = "<group>"; };
 		88698F903E7F4A0FB5DB7C63 /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
 		B6FD4FA586B64AACAF65E6C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,6 +116,7 @@
 				8732098A193ED239004A8FCE /* SLFeedDataSource.swift */,
 				87B7140319402DA000E62C1B /* SLRepo.swift */,
 				87B7140119402C8C00E62C1B /* SLRepoView.swift */,
+				87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */,
 				87B71405194046ED00E62C1B /* SLRepoViewController.swift */,
 				879CBEFF1940D292009EA77B /* SLChannel.swift */,
 				87320970193EB1D7004A8FCE /* Images.xcassets */,
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				8732096D193EB1D7004A8FCE /* Info.plist */,
+				87EE36F61948C9E2002E0959 /* rokob.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87320971193EB1D7004A8FCE /* Images.xcassets in Resources */,
+				87EE36F71948C9E2002E0959 /* rokob.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +321,7 @@
 				87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */,
 				879CBF001940D292009EA77B /* SLChannel.swift in Sources */,
 				87320989193EB32B004A8FCE /* SLFeedViewController.swift in Sources */,
+				87EE36F51948C60C002E0959 /* SLRepoConstraintView.swift in Sources */,
 				87B7140419402DA000E62C1B /* SLRepo.swift in Sources */,
 				87320987193EB279004A8FCE /* SLRootViewController.swift in Sources */,
 				87B7140219402C8C00E62C1B /* SLRepoView.swift in Sources */,

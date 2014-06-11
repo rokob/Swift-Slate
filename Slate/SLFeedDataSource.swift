@@ -2,6 +2,8 @@
 
 import UIKit
 
+let FAKE_DATA = true
+
 struct Repos {
   var repos: Repo[]
 }
@@ -70,6 +72,11 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
       return
     }
 
+    if FAKE_DATA {
+      handleFakeData(username)
+      return
+    }
+
     var manager = AFHTTPRequestOperationManager()
     manager.responseSerializer = AFJSONResponseSerializer()
     manager.GET("https://api.github.com/users/\(username)/repos",
@@ -103,5 +110,15 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
   func handleUnknown(username: String) {
 
+  }
+
+  func handleFakeData(username: String) {
+    var path = NSBundle.mainBundle().pathForResource("rokob", ofType: "json")
+    var rokobData = NSData.dataWithContentsOfFile(path, options: NSDataReadingOptions.DataReadingMapped, error: nil)
+    var response: AnyObject! = NSJSONSerialization.JSONObjectWithData(rokobData, options: NSJSONReadingOptions.MutableContainers, error: nil)
+    var parsedData = parseResponse(response as Dictionary<String, AnyObject!>[])
+    var repos = Repos(repos: parsedData)
+    self.cache[username] = repos
+    handleData(username, repos: repos)
   }
 }

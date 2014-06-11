@@ -12,7 +12,7 @@ class SLRepoViewController: UIViewController {
   }
 
   override func loadView() {
-    var view = SLRepoView(frame: CGRectZero)
+    var view = SLRepoConstraintView(frame: CGRectZero)
     view.configureWithRepo(repo)
     self.view = view
   }
