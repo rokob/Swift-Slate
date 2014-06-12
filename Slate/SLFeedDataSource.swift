@@ -25,15 +25,32 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     super.init()
   }
 
-  func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-    var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
-    if !cell {
-      cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-    }
+//  func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+//    var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
+//    if !cell {
+//      cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+//    }
+//
+//    var repo = data.repos.filter({(r: Repo) -> Bool in return r.fork == (1 == indexPath.section)})[indexPath.row]
+//    cell.textLabel.text = "Name: \(repo.name)"
+//    cell.detailTextLabel.text = "Language: \(repo.language)"
+//    return cell
+//  }
 
+  func tableView(tableView: UITableView!, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    return 115.5
+  }
+
+  func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    var cell = tableView.dequeueReusableCellWithIdentifier("SLRepoCell") as SLWrapperCell!
+    if !cell {
+      cell = SLWrapperCell(identifier: "SLRepoCell", view: SLRepoCellView(frame: CGRectZero))
+    }
     var repo = data.repos.filter({(r: Repo) -> Bool in return r.fork == (1 == indexPath.section)})[indexPath.row]
-    cell.textLabel.text = "Name: \(repo.name)"
-    cell.detailTextLabel.text = "Language: \(repo.language)"
+
+    (cell.view as SLRepoCellView).configure(repo)
+    cell.setNeedsLayout()
+
     return cell
   }
 

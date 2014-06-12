@@ -19,6 +19,8 @@
 		87B7140219402C8C00E62C1B /* SLRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140119402C8C00E62C1B /* SLRepoView.swift */; };
 		87B7140419402DA000E62C1B /* SLRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7140319402DA000E62C1B /* SLRepo.swift */; };
 		87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B71405194046ED00E62C1B /* SLRepoViewController.swift */; };
+		87EBA8D0194A0ACB00C481C6 /* SLWrapperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBA8CF194A0ACB00C481C6 /* SLWrapperCell.swift */; };
+		87EBA8D2194A0C0E00C481C6 /* SLRepoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EBA8D1194A0C0E00C481C6 /* SLRepoCellView.swift */; };
 		87EE36F51948C60C002E0959 /* SLRepoConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */; };
 		87EE36F71948C9E2002E0959 /* rokob.json in Resources */ = {isa = PBXBuildFile; fileRef = 87EE36F61948C9E2002E0959 /* rokob.json */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		87B7140119402C8C00E62C1B /* SLRepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoView.swift; sourceTree = "<group>"; };
 		87B7140319402DA000E62C1B /* SLRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepo.swift; sourceTree = "<group>"; };
 		87B71405194046ED00E62C1B /* SLRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoViewController.swift; sourceTree = "<group>"; };
+		87EBA8CF194A0ACB00C481C6 /* SLWrapperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLWrapperCell.swift; sourceTree = "<group>"; };
+		87EBA8D1194A0C0E00C481C6 /* SLRepoCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoCellView.swift; sourceTree = "<group>"; };
 		87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepoConstraintView.swift; sourceTree = "<group>"; };
 		87EE36F61948C9E2002E0959 /* rokob.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rokob.json; sourceTree = "<group>"; };
 		88698F903E7F4A0FB5DB7C63 /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				87320986193EB279004A8FCE /* SLRootViewController.swift */,
 				87320988193EB32B004A8FCE /* SLFeedViewController.swift */,
 				8732098A193ED239004A8FCE /* SLFeedDataSource.swift */,
+				87EBA8CF194A0ACB00C481C6 /* SLWrapperCell.swift */,
+				87EBA8D1194A0C0E00C481C6 /* SLRepoCellView.swift */,
 				87B7140319402DA000E62C1B /* SLRepo.swift */,
 				87B7140119402C8C00E62C1B /* SLRepoView.swift */,
 				87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */,
@@ -317,10 +323,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87EBA8D0194A0ACB00C481C6 /* SLWrapperCell.swift in Sources */,
 				8732096F193EB1D7004A8FCE /* AppDelegate.swift in Sources */,
 				87B71406194046ED00E62C1B /* SLRepoViewController.swift in Sources */,
 				879CBF001940D292009EA77B /* SLChannel.swift in Sources */,
 				87320989193EB32B004A8FCE /* SLFeedViewController.swift in Sources */,
+				87EBA8D2194A0C0E00C481C6 /* SLRepoCellView.swift in Sources */,
 				87EE36F51948C60C002E0959 /* SLRepoConstraintView.swift in Sources */,
 				87B7140419402DA000E62C1B /* SLRepo.swift in Sources */,
 				87320987193EB279004A8FCE /* SLRootViewController.swift in Sources */,
