@@ -2,11 +2,15 @@
 
 import UIKit
 
+// class variables are not supported so GLOBAL
+var SLRepoCellViewSizeCache = Dictionary<String, CGSize>()
+
 class SLRepoCellView: UIView {
 
   var repoNameLabel: UILabel!
   var repoLanguageLabel: UILabel!
   var otherLabel: UILabel!
+  var cacheKey: String!
 
   let paddingY: CGFloat = 4.0
   let paddingX: CGFloat = 16.0
@@ -17,6 +21,7 @@ class SLRepoCellView: UIView {
   }
 
   func configure(repo: Repo) {
+    cacheKey = repo.name
     repoNameLabel.text = repo.name
     repoLanguageLabel.text = repo.language
     otherLabel.text = ""
@@ -44,8 +49,14 @@ class SLRepoCellView: UIView {
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
-    var result = CGSizeZero
-    result.width = size.width
+    if let resultSize = SLRepoCellViewSizeCache[cacheKey] {
+      if resultSize.width == size.width {
+        return resultSize
+      }
+    }
+
+    var result = size
+    result.height = 0
 
     var adjustedSize = CGSizeMake(size.width - 2*paddingX, size.height)
 
@@ -57,6 +68,7 @@ class SLRepoCellView: UIView {
     result.height += otherLabel.sizeThatFits(adjustedSize).height
     result.height += paddingY
 
+    SLRepoCellViewSizeCache[cacheKey] = result
     return result
   }
 

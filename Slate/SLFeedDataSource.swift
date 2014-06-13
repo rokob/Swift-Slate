@@ -38,7 +38,7 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 //  }
 
   func tableView(tableView: UITableView!, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-    return 115.5
+    return 54.5
   }
 
   func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {

@@ -8,11 +8,13 @@ class SLFeedViewController: UIViewController, SLFeedDataSourceDelegate {
   var dataSource: SLFeedDataSource?
 
   override func loadView() {
-    tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+    tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)
     dataSource = SLFeedDataSource()
     dataSource!.delegate = self
     tableView!.dataSource = dataSource as UITableViewDataSource
     tableView!.delegate = dataSource as UITableViewDelegate
+    tableView!.rowHeight = UITableViewAutomaticDimension
+    tableView!.separatorStyle = .None
 
     self.view = tableView
   }

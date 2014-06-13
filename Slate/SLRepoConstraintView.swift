@@ -44,7 +44,7 @@ class SLRepoConstraintView: UIView {
 
   func configureWithRepo(repo: Repo) {
     self.repo = repo
-    self.setTranslatesAutoresizingMaskIntoConstraints(false)
+    self.autoresizingMask = .FlexibleWidth | .FlexibleHeight
     constructViews()
     configureViewsWithRepo(repo)
     constructConstraints(repo)
@@ -97,7 +97,7 @@ class SLRepoConstraintView: UIView {
         constant: metrics.padding.top
       )
     )
-    views!.ownerImage.addConstraint(
+    self.addConstraint(
       NSLayoutConstraint(
         item: views!.ownerImage,
         attribute: .Height,
@@ -108,7 +108,7 @@ class SLRepoConstraintView: UIView {
         constant: 100.0
       )
     )
-    views!.ownerImage.addConstraint(
+    self.addConstraint(
       NSLayoutConstraint(
         item: views!.ownerImage,
         attribute: .Width,
@@ -215,7 +215,7 @@ class SLRepoConstraintView: UIView {
       NSLayoutConstraint(
         item: view,
         attribute: .Left,
-        relatedBy: .GreaterThanOrEqual,
+        relatedBy: .Equal,
         toItem: self,
         attribute: .Left,
         multiplier: 1.0,
