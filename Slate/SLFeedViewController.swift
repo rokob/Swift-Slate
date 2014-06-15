@@ -16,6 +16,8 @@ class SLFeedViewController: UIViewController, SLFeedDataSourceDelegate {
     tableView!.rowHeight = UITableViewAutomaticDimension
     tableView!.separatorStyle = .None
 
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: Selector("something:"))
+
     self.view = tableView
   }
 
@@ -31,5 +33,11 @@ class SLFeedViewController: UIViewController, SLFeedDataSourceDelegate {
     var repo = dataSource!.repoAtIndex(index, fork: fork)
     var repoVC = SLRepoViewController(repo: repo)
     self.navigationController.pushViewController(repoVC, animated: true)
+  }
+
+  func something(sender: AnyObject!) {
+    var dragVC = UIViewController()
+    dragVC.view.addSubview(SLDraggableMenu(frame: CGRectZero))
+    self.navigationController.pushViewController(dragVC, animated: true)
   }
 }
