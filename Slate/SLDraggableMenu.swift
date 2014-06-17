@@ -2,7 +2,7 @@
 
 import UIKit
 
-class SLDraggableMenu: UIView {
+class SLDraggableMenu: UIView, SLMenuItemDelegate {
 
   let visibleButtonSize: CGFloat = 60
   let compactButtonSize: CGFloat = 40
@@ -12,7 +12,7 @@ class SLDraggableMenu: UIView {
   let animationDuration: CFTimeInterval = 1.1
 
   struct Buttons {
-    var all: UIView[]
+    var all: SLMenuItem[]
     let count: Int
 
     init(count: Int, size: CGFloat,
@@ -50,18 +50,27 @@ class SLDraggableMenu: UIView {
     compactOrigin = CGPointMake(visibleFirstOrigin.x, compactOriginY)
     super.init(frame: frame)
     for view in buttons.all {
-      self.addSubview(view)
       var tappy = UITapGestureRecognizer(target: self, action: Selector("didTap:"))
       view.addGestureRecognizer(tappy)
+      view.delegate = self
+      self.addSubview(view)
     }
   }
 
   func didTap(gestureRecognizer: UITapGestureRecognizer) {
     visible = !visible
+    animateItems(velocity: 3)
+  }
+
+  func clamped(velocity: CGFloat) -> CGFloat {
+    return velocity < 1 ? 1 : velocity > 10 ? 10 : velocity
+  }
+
+  func animateItems(#velocity: CGFloat) {
     UIView.animateWithDuration(animationDuration,
       delay: 0,
       usingSpringWithDamping: 1.2,
-      initialSpringVelocity: 3,
+      initialSpringVelocity: clamped(velocity),
       options: .AllowUserInteraction,
       animations: {
         var offset: CGFloat = self.visible ? self.visibleButtonSize/2 : self.compactOrigin.y + self.compactButtonSize/2
@@ -73,7 +82,7 @@ class SLDraggableMenu: UIView {
           button.backgroundColor = color
           button.alpha = alpha
           button.frame.size = CGSizeMake(size, size)
-          button.center = CGPointMake(button.center.x, 64 + 8 + offset)
+          button.center = CGPointMake(self.visibleFirstOrigin.x + size/2, 64 + 8 + offset)
           button.layer.cornerRadius = size/2
           if self.visible {
             offset += self.visibleButtonSize + self.buttonSpacing
@@ -93,6 +102,19 @@ class SLDraggableMenu: UIView {
       }
     }
     return super.hitTest(point, withEvent: event)
+  }
+
+  func menuItemDidBeginDragging(item: SLMenuItem) {
+
+  }
+
+  func menuItemDidDrag(item: SLMenuItem, point: CGPoint, timestamp: NSTimeInterval) {
+    item.center = point
+  }
+
+  func menuItemDidEndDragging(item: SLMenuItem, velocity: CGPoint) {
+    visible = velocity.y < 0
+    animateItems(velocity: fabsf(velocity.y))
   }
 
 }
