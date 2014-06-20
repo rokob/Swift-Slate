@@ -48,15 +48,17 @@ class SLMenuItem: UIView {
 
   var visibleSize: CGFloat
   var compactSize: CGFloat
+  var name: String
   var duration: CFTimeInterval
   var touches: (CGPoint, CGPoint)
   var timestamps: (NSTimeInterval, NSTimeInterval)
   weak var delegate: SLMenuItemDelegate?
   var dragging: Bool
 
-  init(frame: CGRect, visibleSize: CGFloat, compactSize: CGFloat, duration: CFTimeInterval) {
+  init(frame: CGRect, name: String, visibleSize: CGFloat, compactSize: CGFloat, duration: CFTimeInterval) {
     self.visibleSize = visibleSize
     self.compactSize = compactSize
+    self.name = name
     self.duration = duration
     self.touches = (CGPointZero, CGPointZero)
     self.timestamps = (0, 0)

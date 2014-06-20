@@ -24,7 +24,7 @@ class SLDraggableMenu: UIView, SLMenuItemDelegate {
       var offset: CGFloat = 0
       for x in 0..count {
         var frame = CGRectMake(firstPosition.x, firstPosition.y+offset, size, size)
-        var view = SLMenuItem(frame: frame, visibleSize: visibleSize, compactSize: compactSize, duration: animationDuration)
+        var view = SLMenuItem(frame: frame, name: "\(x)", visibleSize: visibleSize, compactSize: compactSize, duration: animationDuration)
         view.backgroundColor = UIColor.blackColor()
         all.append(view)
         offset += size + spacing
@@ -59,7 +59,36 @@ class SLDraggableMenu: UIView, SLMenuItemDelegate {
 
   func didTap(gestureRecognizer: UITapGestureRecognizer) {
     visible = !visible
-    animateItems(velocity: 3)
+    var item = gestureRecognizer.view
+    var origSize = item.frame.size.width
+    var bigSize = origSize*1.1
+    var smallSize = origSize*0.9
+    var duration: NSTimeInterval = 0.2
+    if !visible {
+      didSelectItem(item as SLMenuItem)
+      UIView.animateWithDuration(
+        duration*2,
+        animations: {
+          item.frame.size = CGSizeMake(bigSize, bigSize)
+          item.layer.cornerRadius = bigSize/2
+          item.backgroundColor = UIColor.blueColor()
+        },
+        completion: {(finished: Bool) in
+          UIView.animateWithDuration(
+            duration,
+            animations: {
+              item.frame.size = CGSizeMake(smallSize, smallSize)
+              item.layer.cornerRadius = smallSize/2
+            },
+            completion: {(finished: Bool) in
+              self.animateItems(velocity: 3)
+            }
+          )
+        }
+      )
+    } else {
+      animateItems(velocity: 3)
+    }
   }
 
   func clamped(velocity: CGFloat) -> CGFloat {
@@ -105,7 +134,12 @@ class SLDraggableMenu: UIView, SLMenuItemDelegate {
   }
 
   func menuItemDidBeginDragging(item: SLMenuItem) {
-
+    if visible {
+      didSelectItem(item)
+      UIView.animateWithDuration(0.2) {
+        item.backgroundColor = UIColor.greenColor()
+      }
+    }
   }
 
   func menuItemDidDrag(item: SLMenuItem, point: CGPoint, timestamp: NSTimeInterval) {
@@ -115,6 +149,10 @@ class SLDraggableMenu: UIView, SLMenuItemDelegate {
   func menuItemDidEndDragging(item: SLMenuItem, velocity: CGPoint) {
     visible = velocity.y < 0
     animateItems(velocity: fabsf(velocity.y))
+  }
+
+  func didSelectItem(item: SLMenuItem) {
+    println("SELECTED \(item.name)")
   }
 
 }

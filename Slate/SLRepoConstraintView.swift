@@ -86,6 +86,13 @@ class SLRepoConstraintView: UIView {
   }
 
   func constructConstraints(repo: Repo) {
+    /*
+
+self <> self >_ views!.ownerImage /+ metrics.padding.top
+self <> views!.ownerImage _-_ 100
+self <> views!.ownerImage _ .Width _=_ .Height
+
+    */
     self.addConstraint(
       NSLayoutConstraint(
         item: views!.ownerImage,
