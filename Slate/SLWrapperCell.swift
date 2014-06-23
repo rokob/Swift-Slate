@@ -4,10 +4,10 @@ import UIKit
 
 class SLWrapperCell: UITableViewCell {
 
-  var view: UIView
+  var innerView: UIView
 
   init(identifier: String, view: UIView) {
-    self.view = view
+    innerView = view
     super.init(style: .Default, reuseIdentifier: identifier)
     self.contentView.addSubview(view)
   }
@@ -17,10 +17,10 @@ class SLWrapperCell: UITableViewCell {
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
-    return view.sizeThatFits(size)
+    return innerView.sizeThatFits(size)
   }
 
   override func layoutSubviews() {
-    view.frame = self.bounds
+    innerView.frame = self.bounds
   }
 }

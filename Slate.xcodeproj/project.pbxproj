@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		196A076F2AF1418A80433AED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FD4FA586B64AACAF65E6C9 /* libPods.a */; };
 		83E1AACA700F411FB4F0EF84 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E70E3081FD84732A4B04B32 /* libPods-unit_tests.a */; };
+		870ECAA1195805C600EB9C0B /* SLMockJsonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */; };
 		8732096F193EB1D7004A8FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732096E193EB1D7004A8FCE /* AppDelegate.swift */; };
 		87320971193EB1D7004A8FCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87320970193EB1D7004A8FCE /* Images.xcassets */; };
 		8732097D193EB1D7004A8FCE /* SlateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732097C193EB1D7004A8FCE /* SlateTests.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		3E70E3081FD84732A4B04B32 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB3368E2F394B169D63F262 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLMockJsonServer.swift; sourceTree = "<group>"; };
 		87320969193EB1D7004A8FCE /* Slate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8732096D193EB1D7004A8FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8732096E193EB1D7004A8FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,92 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		870ECA961958028B00EB9C0B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				87FEE48D194A9CC90027E724 /* SLDraggableMenu.swift */,
+				87D81BDF194D2E830029D135 /* SLMenuItem.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		870ECA97195802A400EB9C0B /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				87320988193EB32B004A8FCE /* SLFeedViewController.swift */,
+				8732098A193ED239004A8FCE /* SLFeedDataSource.swift */,
+				87EBA8D1194A0C0E00C481C6 /* SLRepoCellView.swift */,
+				87B7140319402DA000E62C1B /* SLRepo.swift */,
+				87B7140119402C8C00E62C1B /* SLRepoView.swift */,
+				87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */,
+				87B71405194046ED00E62C1B /* SLRepoViewController.swift */,
+			);
+			name = Github;
+			sourceTree = "<group>";
+		};
+		870ECA981958033200EB9C0B /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		870ECA991958033E00EB9C0B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		870ECA9A1958034900EB9C0B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87320986193EB279004A8FCE /* SLRootViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		870ECA9B1958035100EB9C0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87EBA8CF194A0ACB00C481C6 /* SLWrapperCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		870ECA9C1958039C00EB9C0B /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				879CBEFF1940D292009EA77B /* SLChannel.swift */,
+				870ECA97195802A400EB9C0B /* Github */,
+				870ECA961958028B00EB9C0B /* Menu */,
+			);
+			name = Play;
+			sourceTree = "<group>";
+		};
+		870ECA9D195803EA00EB9C0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		870ECA9E195803EF00EB9C0B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		870ECA9F1958045F00EB9C0B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				87EE36F61948C9E2002E0959 /* rokob.json */,
+				870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 		87320960193EB1D7004A8FCE = {
 			isa = PBXGroup;
 			children = (
@@ -118,19 +206,15 @@
 		8732096B193EB1D7004A8FCE /* Slate */ = {
 			isa = PBXGroup;
 			children = (
+				870ECA9E195803EF00EB9C0B /* Constants */,
+				870ECA991958033E00EB9C0B /* Controllers */,
+				870ECA981958033200EB9C0B /* DataSources */,
+				870ECA9F1958045F00EB9C0B /* Mocks */,
+				870ECA9D195803EA00EB9C0B /* Models */,
+				870ECA9C1958039C00EB9C0B /* Play */,
+				870ECA9A1958034900EB9C0B /* ViewControllers */,
+				870ECA9B1958035100EB9C0B /* Views */,
 				8732096E193EB1D7004A8FCE /* AppDelegate.swift */,
-				87320986193EB279004A8FCE /* SLRootViewController.swift */,
-				87320988193EB32B004A8FCE /* SLFeedViewController.swift */,
-				8732098A193ED239004A8FCE /* SLFeedDataSource.swift */,
-				87EBA8CF194A0ACB00C481C6 /* SLWrapperCell.swift */,
-				87EBA8D1194A0C0E00C481C6 /* SLRepoCellView.swift */,
-				87B7140319402DA000E62C1B /* SLRepo.swift */,
-				87B7140119402C8C00E62C1B /* SLRepoView.swift */,
-				87EE36F41948C60C002E0959 /* SLRepoConstraintView.swift */,
-				87B71405194046ED00E62C1B /* SLRepoViewController.swift */,
-				87FEE48D194A9CC90027E724 /* SLDraggableMenu.swift */,
-				87D81BDF194D2E830029D135 /* SLMenuItem.swift */,
-				879CBEFF1940D292009EA77B /* SLChannel.swift */,
 				87320970193EB1D7004A8FCE /* Images.xcassets */,
 				8732096C193EB1D7004A8FCE /* Supporting Files */,
 				8732098C193EFDBD004A8FCE /* Slate-Bridging-Header.h */,
@@ -142,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				8732096D193EB1D7004A8FCE /* Info.plist */,
-				87EE36F61948C9E2002E0959 /* rokob.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -342,6 +425,7 @@
 				87320987193EB279004A8FCE /* SLRootViewController.swift in Sources */,
 				87B7140219402C8C00E62C1B /* SLRepoView.swift in Sources */,
 				8732098B193ED239004A8FCE /* SLFeedDataSource.swift in Sources */,
+				870ECAA1195805C600EB9C0B /* SLMockJsonServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
