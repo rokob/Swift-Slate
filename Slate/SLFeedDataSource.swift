@@ -118,10 +118,8 @@ class SLFeedDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
   }
 
   func handleFakeData(username: String) {
-    var path = NSBundle.mainBundle().pathForResource("rokob", ofType: "json")
-    var rokobData = NSData.dataWithContentsOfFile(path, options: NSDataReadingOptions.DataReadingMapped, error: nil)
-    var response: AnyObject! = NSJSONSerialization.JSONObjectWithData(rokobData, options: NSJSONReadingOptions.MutableContainers, error: nil)
-    var parsedData = parseResponse(response as Dictionary<String, AnyObject!>[])
+    var response = SLMockJsonServer.arrayFromFile("rokob")
+    var parsedData = parseResponse(response)
     var repos = Repos(repos: parsedData)
     self.cache[username] = repos
     handleData(username, repos: repos)
