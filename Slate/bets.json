@@ -7,26 +7,29 @@
         "id": 101,
         "name": "Lauren Slaushinboot",
         "image_url": "http://something.s3.amazonaws.com/slate/u/94jfeo23j.png",
-        "friends": true
+        "is_viewer_friend": true
       }
     ],
     "event": {
       "id": 3,
-      "date": "2014-10-08T19:00:00Z"
+      "date": "2014-10-08T19:00:00Z",
+      "x": "NFL",
+      "y": "Regular Season",
+      "z": "Week 4",
       "teams": [
         {
           "id": 32,
           "name": "Chicago Bears",
           "short_name": "Bears",
           "image_url": "http://something.s3.amazonaws.com/slate/t/49948293djfk.png",
-          "favorite": true
+          "is_viewer_favorite": true
         },
         {
           "id": 44,
           "name": "Green Bay Packers",
           "short_name": "Packers",
           "image_url": "http://something.s3.amazonaws.com/slate/t/49948293djfk.png",
-          "favorite": false
+          "is_viewer_favorite": false
         }
       ]
     },
@@ -43,7 +46,61 @@
       "unit": "BIT",
       "odds": {
         "favorite": 44,
-        "line": "6.5",
+        "line": "300",
+        "spread": "6.5",
+        "ou": "35.5"
+      }
+    }
+  },
+  {
+    "id": 95863,
+    "status": 5
+    "opponents": [
+      {
+        "id": 3,
+        "name": "Fred Flinstone",
+        "image_url": "http://something.s3.amazonaws.com/slate/u/kjfd943nf.png",
+        "is_viewer_friend": false
+      }
+    ],
+    "event": {
+      "id": 47,
+      "date": "2014-06-28T19:00:00Z",
+      "x": "World Cup",
+      "y": "Overall Champion",
+      "z": null,
+      "teams": [
+        {
+          "id": 9,
+          "name": "United States",
+          "short_name": "USA",
+          "image_url": "http://something.s3.amazonaws.com/slate/t/erupdnf9d2.png",
+          "is_viewer_favorite": true
+        },
+        {
+          "id": 82,
+          "name": "The Field",
+          "short_name": "Any",
+          "image_url": "http://something.s3.amazonaws.com/slate/t/jfie948nf.png",
+          "is_viewer_favorite": false
+        }
+      ]
+    },
+    "wager": {
+      "id": 62,
+      "viewer_pick": 9,
+      "opponent_picks": [
+        {
+          "opponent_id": 3,
+          "pick": 82
+        }
+      ],
+      "amount": 10,
+      "unit": "USD",
+      "odds": {
+        "favorite": 82,
+        "line": "10000",
+        "spread": "6.5",
         "ou": "35.5"
       }
     }
