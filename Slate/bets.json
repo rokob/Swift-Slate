@@ -1,0 +1,51 @@
+[
+  {
+    "id": 12345,
+    "status": 0
+    "opponents": [
+      {
+        "id": 101,
+        "name": "Lauren Slaushinboot",
+        "image_url": "http://something.s3.amazonaws.com/slate/u/94jfeo23j.png",
+        "friends": true
+      }
+    ],
+    "event": {
+      "id": 3,
+      "date": "2014-10-08T19:00:00Z"
+      "teams": [
+        {
+          "id": 32,
+          "name": "Chicago Bears",
+          "short_name": "Bears",
+          "image_url": "http://something.s3.amazonaws.com/slate/t/49948293djfk.png",
+          "favorite": true
+        },
+        {
+          "id": 44,
+          "name": "Green Bay Packers",
+          "short_name": "Packers",
+          "image_url": "http://something.s3.amazonaws.com/slate/t/49948293djfk.png",
+          "favorite": false
+        }
+      ]
+    },
+    "wager": {
+      "id": 99,
+      "viewer_pick": 32,
+      "opponent_picks": [
+        {
+          "opponent_id": 101,
+          "pick": 44
+        }
+      ],
+      "amount": 5,
+      "unit": "BIT",
+      "odds": {
+        "favorite": 44,
+        "line": "6.5",
+        "ou": "35.5"
+      }
+    }
+  }
+]

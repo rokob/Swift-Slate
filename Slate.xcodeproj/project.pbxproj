@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		196A076F2AF1418A80433AED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FD4FA586B64AACAF65E6C9 /* libPods.a */; };
 		83E1AACA700F411FB4F0EF84 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E70E3081FD84732A4B04B32 /* libPods-unit_tests.a */; };
+		870DD27F195BD1CB00CBCEDD /* bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 870DD27E195BD1CB00CBCEDD /* bets.json */; };
 		870ECAA1195805C600EB9C0B /* SLMockJsonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */; };
 		8732096F193EB1D7004A8FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732096E193EB1D7004A8FCE /* AppDelegate.swift */; };
 		87320971193EB1D7004A8FCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87320970193EB1D7004A8FCE /* Images.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		3E70E3081FD84732A4B04B32 /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB3368E2F394B169D63F262 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		870DD27E195BD1CB00CBCEDD /* bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bets.json; sourceTree = "<group>"; };
 		870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLMockJsonServer.swift; sourceTree = "<group>"; };
 		87320969193EB1D7004A8FCE /* Slate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8732096D193EB1D7004A8FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				87EE36F61948C9E2002E0959 /* rokob.json */,
 				870ECAA0195805C600EB9C0B /* SLMockJsonServer.swift */,
+				870DD27E195BD1CB00CBCEDD /* bets.json */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870DD27F195BD1CB00CBCEDD /* bets.json in Resources */,
 				87320971193EB1D7004A8FCE /* Images.xcassets in Resources */,
 				87EE36F71948C9E2002E0959 /* rokob.json in Resources */,
 			);
